@@ -159,6 +159,8 @@ nav a:hover {
         rgba(20,70,130,0.08);
 
     transition: 0.2s;
+
+    cursor: pointer;
 }
 
 .product:hover {
@@ -190,8 +192,6 @@ nav a:hover {
     font-size: 75px;
 
     margin-bottom: 18px;
-
-    cursor: pointer;
 }
 
 .product h3 {
@@ -354,7 +354,7 @@ nav a:hover {
 }
 
 
-/* FORMULARZ */
+/* FORM */
 
 .request-box {
     margin-top: 10px;
@@ -513,6 +513,7 @@ footer {
 
     .product-details-image {
         min-height: 230px;
+
         font-size: 90px;
     }
 
@@ -529,14 +530,11 @@ footer {
 <body>
 
 
-<!-- HEADER -->
-
 <header>
 
     <div class="logo">
         FlexShop
     </div>
-
 
     <nav>
 
@@ -556,8 +554,10 @@ footer {
 
     </nav>
 
-
-    <button class="cart-button">
+    <button
+        class="cart-button"
+        type="button"
+    >
         🛒 Koszyk
     </button>
 
@@ -565,10 +565,9 @@ footer {
 
 
 
-<!-- STRONA GŁÓWNA -->
+<!-- HOME -->
 
 <div id="homePage">
-
 
     <section class="hero">
 
@@ -589,13 +588,11 @@ footer {
         id="produkty"
     >
 
-
         <input
             class="search"
             id="search"
             type="text"
             placeholder="🔎 Szukaj oferty..."
-            oninput="filterProducts()"
         >
 
 
@@ -604,28 +601,24 @@ footer {
         </h2>
 
 
-
         <div class="products">
 
+
+            <!-- DISCORD -->
 
             <div
                 class="product"
                 data-name="serwery discord"
+                onclick="openOffer('discord')"
             >
 
-
-                <div
-                    class="product-image"
-                    onclick="openDiscordOffer()"
-                >
+                <div class="product-image">
                     💬
                 </div>
-
 
                 <h3>
                     Serwery Discord
                 </h3>
-
 
                 <p class="product-description">
 
@@ -635,23 +628,57 @@ footer {
 
                 </p>
 
-
                 <div class="price">
-
                     Wycena indywidualna
-
                 </div>
-
 
                 <button
                     class="offer-button"
-                    onclick="openDiscordOffer()"
+                    type="button"
+                    onclick="event.stopPropagation(); openOffer('discord')"
                 >
-
                     Zobacz ofertę →
-
                 </button>
 
+            </div>
+
+
+
+            <!-- MINECRAFT -->
+
+            <div
+                class="product"
+                data-name="skrypty minecraft skript"
+                onclick="openOffer('minecraft')"
+            >
+
+                <div class="product-image">
+                    ⛏️
+                </div>
+
+                <h3>
+                    Skrypty Minecraft
+                </h3>
+
+                <p class="product-description">
+
+                    Tworzenie skryptów Skript
+                    do serwerów Minecraft
+                    według Twojego pomysłu.
+
+                </p>
+
+                <div class="price">
+                    Wycena indywidualna
+                </div>
+
+                <button
+                    class="offer-button"
+                    type="button"
+                    onclick="event.stopPropagation(); openOffer('minecraft')"
+                >
+                    Zobacz ofertę →
+                </button>
 
             </div>
 
@@ -664,54 +691,41 @@ footer {
 
 
 
-<!-- OFERTA -->
+<!-- DISCORD PAGE -->
 
 <section
     class="product-page"
-    id="productPage"
+    id="discordPage"
 >
-
 
     <button
         class="back-button"
+        type="button"
         onclick="showHome()"
     >
-
         ← Wróć do ofert
-
     </button>
-
 
 
     <div class="product-details">
 
 
         <div class="product-details-image">
-
             💬
-
         </div>
-
 
 
         <div>
 
-
             <span class="product-category">
-
                 Usługi Discord
-
             </span>
-
 
 
             <div class="product-details-info">
 
-
                 <h1>
-
                     Serwery Discord
-
                 </h1>
 
 
@@ -727,22 +741,16 @@ footer {
 
                     <br>
                     • kanały
-
                     <br>
                     • role
-
                     <br>
                     • permisje
-
                     <br>
                     • tickety
-
                     <br>
                     • boty
-
                     <br>
                     • automatyzacje
-
                     <br>
                     • wygląd serwera
 
@@ -750,36 +758,23 @@ footer {
 
 
                 <div class="product-details-price">
-
                     Wycena indywidualna
-
                 </div>
-
 
             </div>
 
 
-
-            <!-- FORMULARZ -->
-
             <div class="request-box">
 
-
                 <h2>
-
                     💬 Napisz, czego potrzebujesz
-
                 </h2>
 
-
                 <p>
-
                     Wypełnij formularz,
                     a następnie kliknij
                     „Napisz do nas”.
-
                 </p>
-
 
 
                 <div class="form-group">
@@ -789,13 +784,12 @@ footer {
                     </label>
 
                     <input
-                        id="clientName"
+                        id="discordName"
                         type="text"
                         placeholder="Np. Wojtek"
                     >
 
                 </div>
-
 
 
                 <div class="form-group">
@@ -805,13 +799,12 @@ footer {
                     </label>
 
                     <input
-                        id="clientEmail"
+                        id="discordEmail"
                         type="email"
                         placeholder="Np. twojemail@gmail.com"
                     >
 
                 </div>
-
 
 
                 <div class="form-group">
@@ -821,26 +814,22 @@ footer {
                     </label>
 
                     <textarea
-                        id="clientMessage"
+                        id="discordMessage"
                         placeholder="Np. Potrzebuję serwera Discord z ticketami, rangami i botami..."
                     ></textarea>
 
                 </div>
 
 
-
                 <button
                     class="send-request"
-                    onclick="sendEmail()"
+                    type="button"
+                    onclick="sendEmail('discord')"
                 >
-
                     📩 Napisz do nas
-
                 </button>
 
-
             </div>
-
 
         </div>
 
@@ -850,7 +839,163 @@ footer {
 
 
 
-<!-- FOOTER -->
+<!-- MINECRAFT PAGE -->
+
+<section
+    class="product-page"
+    id="minecraftPage"
+>
+
+    <button
+        class="back-button"
+        type="button"
+        onclick="showHome()"
+    >
+        ← Wróć do ofert
+    </button>
+
+
+    <div class="product-details">
+
+
+        <div class="product-details-image">
+            ⛏️
+        </div>
+
+
+        <div>
+
+            <span class="product-category">
+                Minecraft / Skript
+            </span>
+
+
+            <div class="product-details-info">
+
+                <h1>
+                    Skrypty Minecraft
+                </h1>
+
+
+                <p class="product-full-description">
+
+                    Tworzymy własne skrypty
+                    Skript do serwerów Minecraft.
+
+                    <br><br>
+
+                    Możemy zrobić między innymi:
+
+                    <br>
+                    • systemy sklepów
+                    <br>
+                    • vouchery
+                    <br>
+                    • teleportacje
+                    <br>
+                    • systemy rang
+                    <br>
+                    • komendy
+                    <br>
+                    • GUI
+                    <br>
+                    • systemy ekonomii
+                    <br>
+                    • systemy nagród
+                    <br>
+                    • automatyczne wiadomości
+                    <br>
+                    • inne pomysły na skrypty
+
+                    <br><br>
+
+                    Opisz dokładnie, czego potrzebujesz,
+                    a przygotujemy wycenę.
+
+                </p>
+
+
+                <div class="product-details-price">
+                    Wycena indywidualna
+                </div>
+
+            </div>
+
+
+            <div class="request-box">
+
+                <h2>
+                    ⛏️ Napisz, jakiego skryptu potrzebujesz
+                </h2>
+
+                <p>
+                    Opisz swój pomysł na skrypt,
+                    a następnie kliknij
+                    „Napisz do nas”.
+                </p>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Twój nick / nazwa
+                    </label>
+
+                    <input
+                        id="minecraftName"
+                        type="text"
+                        placeholder="Np. Wojtek"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Twój e-mail
+                    </label>
+
+                    <input
+                        id="minecraftEmail"
+                        type="email"
+                        placeholder="Np. twojemail@gmail.com"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Opisz skrypt
+                    </label>
+
+                    <textarea
+                        id="minecraftMessage"
+                        placeholder="Np. Potrzebuję skryptu na voucher, który nadaje rangę po wpisaniu kodu..."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    class="send-request"
+                    type="button"
+                    onclick="sendEmail('minecraft')"
+                >
+                    📩 Napisz do nas
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 
 <footer>
 
@@ -862,21 +1007,41 @@ footer {
 
 <script>
 
-
 /* =====================================
    OTWIERANIE OFERTY
 ===================================== */
 
-function openDiscordOffer() {
+function openOffer(type) {
 
-    document.getElementById(
-        "homePage"
-    ).style.display = "none";
+    const home =
+        document.getElementById("homePage");
+
+    const discord =
+        document.getElementById("discordPage");
+
+    const minecraft =
+        document.getElementById("minecraftPage");
 
 
-    document.getElementById(
-        "productPage"
-    ).style.display = "block";
+    home.style.display = "none";
+
+    discord.style.display = "none";
+
+    minecraft.style.display = "none";
+
+
+    if (type === "discord") {
+
+        discord.style.display = "block";
+
+    }
+
+
+    if (type === "minecraft") {
+
+        minecraft.style.display = "block";
+
+    }
 
 
     window.scrollTo({
@@ -894,7 +1059,12 @@ function openDiscordOffer() {
 function showHome() {
 
     document.getElementById(
-        "productPage"
+        "discordPage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "minecraftPage"
     ).style.display = "none";
 
 
@@ -915,13 +1085,14 @@ function showHome() {
    WYSZUKIWARKA
 ===================================== */
 
-function filterProducts() {
+document
+.getElementById("search")
+.addEventListener("input", function() {
 
     const search =
-        document
-        .getElementById("search")
-        .value
-        .toLowerCase();
+        this.value
+        .toLowerCase()
+        .trim();
 
 
     document
@@ -929,38 +1100,35 @@ function filterProducts() {
     .forEach(function(product) {
 
         const name =
-            product.getAttribute(
-                "data-name"
-            );
+            product
+            .getAttribute("data-name")
+            .toLowerCase();
 
 
         if (name.includes(search)) {
 
-            product.style.display =
-                "block";
+            product.style.display = "";
 
         } else {
 
-            product.style.display =
-                "none";
+            product.style.display = "none";
 
         }
 
     });
 
-}
+});
 
 
 /* =====================================
-   GMAIL
+   WYSYŁANIE E-MAILA
 ===================================== */
 
-function sendEmail() {
-
+function sendEmail(type) {
 
     /*
     =====================================
-    ZMIEŃ TYLKO TEN ADRES
+    ZMIEŃ TEN ADRES NA SWÓJ E-MAIL
     =====================================
     */
 
@@ -968,26 +1136,68 @@ function sendEmail() {
         "TWOJEMAIL@gmail.com";
 
 
-    const name =
-        document
-        .getElementById("clientName")
-        .value
-        .trim();
+    let name;
+    let email;
+    let message;
+    let service;
 
 
-    const email =
-        document
-        .getElementById("clientEmail")
-        .value
-        .trim();
+    if (type === "discord") {
+
+        name =
+            document
+            .getElementById("discordName")
+            .value
+            .trim();
 
 
-    const message =
-        document
-        .getElementById("clientMessage")
-        .value
-        .trim();
+        email =
+            document
+            .getElementById("discordEmail")
+            .value
+            .trim();
 
+
+        message =
+            document
+            .getElementById("discordMessage")
+            .value
+            .trim();
+
+
+        service =
+            "Serwer Discord";
+
+    }
+
+
+    if (type === "minecraft") {
+
+        name =
+            document
+            .getElementById("minecraftName")
+            .value
+            .trim();
+
+
+        email =
+            document
+            .getElementById("minecraftEmail")
+            .value
+            .trim();
+
+
+        message =
+            document
+            .getElementById("minecraftMessage")
+            .value
+            .trim();
+
+
+        service =
+            "Skrypt Minecraft";
+
+    }
 
 
     if (
@@ -1005,12 +1215,11 @@ function sendEmail() {
     }
 
 
-
     const subject =
         encodeURIComponent(
-            "FlexShop - Zapytanie dotyczące Serwerów Discord"
+            "FlexShop - Zapytanie: " +
+            service
         );
-
 
 
     const body =
@@ -1018,14 +1227,16 @@ function sendEmail() {
 
             "NOWE ZAPYTANIE FLEXSHOP\n\n" +
 
-            "Nick / nazwa: " +
+            "USŁUGA: " +
+            service +
+
+            "\n\nNick / nazwa: " +
             name +
 
             "\n\nE-mail klienta: " +
             email +
 
             "\n\nTreść zapytania:\n" +
-
             message +
 
             "\n\n---\n" +
@@ -1035,21 +1246,15 @@ function sendEmail() {
         );
 
 
-
     const gmailUrl =
         "https://mail.google.com/mail/?view=cm" +
-
         "&fs=1" +
-
         "&to=" +
         encodeURIComponent(shopEmail) +
-
         "&su=" +
         subject +
-
         "&body=" +
         body;
-
 
 
     window.open(
@@ -1060,7 +1265,6 @@ function sendEmail() {
 }
 
 </script>
-
 
 </body>
 </html>
